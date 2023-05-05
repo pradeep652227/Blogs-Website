@@ -1,0 +1,16 @@
+{
+  "name": "blog_website",
+  "version": "1.0.0",
+  "description": "blog website using node and express js with dynamic page addition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pradeep Gaur",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}

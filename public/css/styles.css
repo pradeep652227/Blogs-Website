@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: antiquewhite;
+}
+nav {
+  max-width: 1200px;
+  margin-top: 10px;
+  margin: auto;
+  padding: 40px;
+}
+
+nav ul {
+  /* display: inline-block; */
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  float: right;
+  font-family: ;
+  font-size: 1.3rem;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+nav li a {
+  text-decoration: none;
+}
+
+nav .title {
+  /* display: inline-block; */
+  display: block;
+  font-size: 1.5rem;
+  float: left;
+  /* margin-left:10px; */
+}
+
+/*Middle Content between header and footer*/
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+.container p {
+  font-size: 1.1rem;
+}
+
+form label{
+    font-size:1.3rem;
+}
+form input{
+    margin-bottom: 10px;
+    font-size:1.1rem;
+}
+form label,form input{
+    display: block;
+    width:100%;
+}
+
+form textarea{
+    width:100%;
+}
+
+input[type="submit"]{
+    margin-top: 7px;
+    display:block;
+    width:fit-content;
+    padding:5px;
+    font-size:1.05rem;
+}
+
+/*Footer*/
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: aliceblue;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+footer p {
+  margin: 0;
+  padding: 10px;
+}
+/*For floated child elements*/
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  zoom: 1;
+}
