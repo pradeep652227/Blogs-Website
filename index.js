@@ -8,9 +8,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const alert=require('alert');
-//mongoose require and connect
+/*mongoose require and connect*/
 const mongoose=require('mongoose');
-mongoose.connect("mongodb://127.0.0.1:27017/blog-website");
+mongoose.connect("mongodb+srv://ps652227:pardeep978@cluster0.wdvs1nn.mongodb.net/blog-website");
 
 const blogSchema=new mongoose.Schema({//Schema defined
   title:{type:String, unique:true},
@@ -18,35 +18,29 @@ const blogSchema=new mongoose.Schema({//Schema defined
 });
 const Blog=new mongoose.model("blog",blogSchema);//model created
 
-/*post requests*/
-// let titlesArray=[];
-// let postContentArray=[];
-
+/*Add blogs*/
 app.post("/",(req,res)=>{
     let postTitle=req.body.postTitle;
     postTitle=postTitle.charAt(0).toUpperCase() + postTitle.slice(1);//1st letter capitalised
     console.log(postTitle);
     let postContent=req.body.postContent;
-    Blog.create({
+
+    Blog.create({//new blog post
       title:postTitle,
       blogContent:postContent
     })
     .then(result=>{
-      console.log("Blog post added with title= "+result.title+" and content= "+result.blogContent);
+      console.log("Blog post added with title= "+result.title);
       res.redirect("/");
     })
     .catch(err=>{
       console.log("Error in creating the blog post= "+err);
       alert("Error in creating the blog post= "+err);
     });
-    // titlesArray.push(postTitle);
-    // postContentArray.push(postContent);
-
-    // res.render("home",{titles:titlesArray,posts:postContentArray});
 })
 /*get requests*/
 
-app.get("/posts/:postID",(req,res)=>{
+app.get("/posts/:postID",(req,res)=>{//custom blog page
    let title=req.params.postID;
    console.log("Title in custom route is "+title);
    title=title.toLowerCase();
@@ -62,7 +56,7 @@ app.get("/posts/:postID",(req,res)=>{
               break;
             }
           }
-          if(flag==1)
+          if(flag==1)//render the custom blog page
           res.render("post",{post:result[idx]});
           else{
             console.log("No such blog post exists");
@@ -79,20 +73,6 @@ app.get("/posts/:postID",(req,res)=>{
         console.log("Error in retrieving the blogs for your query. Error="+err);
         alert("Error in retrieving the blogs in finding the blog"+err);
        });
-  //  for(;i<titlesArray.length;i++){
-  //     let currTitle=titlesArray[i];
-  //     currTitle=currTitle.toLowerCase();
-  //     if(title==currTitle){
-  //       flag=1;
-  //       break;
-  //     }
-  //  }
-  //  if(flag==1){
-  //   res.render("post",{postTitle:titlesArray[i],postContent:postContentArray[i]});
-  //  }
-  //  else{
-  //  res.send("No such blog post exist");
-  //  }
 });
 
 app.get("/compose",(req,res)=>{
@@ -107,7 +87,7 @@ app.get("/about-us", (req, res) => {
 app.get("/", (req, res) => {
   Blog.find({})//get all the blogs
       .then(result=>{
-        console.log("blogs are:- "+result);
+        console.log("blogs are:- "+result.title);
         if(result){//there are elements
           res.render("home",{blogs:result});
         }else{

@@ -7,6 +7,9 @@ body {
 header {
   background-color: antiquewhite;
 }
+header .title a{
+  text-decoration: none;
+}
 nav {
   max-width: 1200px;
   margin-top: 10px;
@@ -77,9 +80,10 @@ input[type="submit"]{
 
 /*Footer*/
 footer {
-  position: fixed;
+  /* position: fixed;
   bottom: 0px;
-  width: 100%;
+  width: 100%; */
+  margin-top:10px;
   background-color: aliceblue;
   text-align: center;
   font-size: 1.2rem;
