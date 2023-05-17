@@ -14,16 +14,24 @@
 
   <div class="container">
     <h1>Home</h1>
-    <p  class="intro" id="home-intro">
+    <p class="intro" id="home-intro">
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quaerat nostrum numquam architecto nihil fuga sint veritatis deserunt velit soluta nulla, repellat unde error maiores. Animi aut enim corporis quibusdam!
     </p>
-    
-  <div class="blog-posts">
-    <% for(let i=0;i<titles.length;i++){%>
-        <h1><%=titles[i]%></h1>
-        <p class="postContent"><%=posts[i]%> <a href="/post">Read more...</a></p>
-   <% }%>
-  </div>
+
+    <div class="blog-posts">
+      <% //blogs variable is passed %>
+      <% blogs.forEach(blog=>{%>
+      <% let title=blog.title;
+        let postContent=blog.blogContent;
+        let shortContent=postContent.substring(0,100);
+        let postURL="/posts/"+title;%>
+      <h1><%=title%></h1>
+      <p>
+        <%=shortContent%>
+        <a href="<%=postURL%>">Read more...</a>
+      </p>
+      <% }); %>
+    </div>
   </div>
 
   <%- include('partials/footer') %>
