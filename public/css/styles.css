@@ -1,30 +1,39 @@
+html,body{
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/*General Styles*/
+.container, nav{
+  max-width: 1400px;
+  padding:10px !important;
+}
+
+/*Header*/
 header {
   background-color: antiquewhite;
 }
-header .title a{
+
+.title a{
+  font-family: 'Cinzel', serif;
   text-decoration: none;
 }
 nav {
-  max-width: 1200px;
   margin-top: 10px;
   margin: auto;
-  padding: 40px;
 }
 
 nav ul {
-  /* display: inline-block; */
   display: block;
   margin: 0;
   padding: 0;
   list-style: none;
   float: right;
-  font-family: ;
   font-size: 1.3rem;
 }
 
@@ -38,22 +47,23 @@ nav li a {
 }
 
 nav .title {
-  /* display: inline-block; */
   display: block;
-  font-size: 1.5rem;
   float: left;
-  /* margin-left:10px; */
 }
 
 /*Middle Content between header and footer*/
 .container {
-  max-width: 1200px;
+  min-height: 100vh;
   margin: auto;
+  margin-top:10px;
 }
 .container p {
   font-size: 1.1rem;
+  font-family: 'Nunito', sans-serif;
 }
-
+.container h1{
+  font-weight: 400;
+}
 form label{
     font-size:1.3rem;
 }
